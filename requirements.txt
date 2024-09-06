@@ -1,1 +1,2 @@
 plotly
+pandas~=2.2.2
