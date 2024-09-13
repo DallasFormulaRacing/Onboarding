@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px 
 
 
-dataFile = pd.read_csv(r"C:\Users\JN\Desktop\Onboarding\can-_ecu_762.csv") # read data dump file
+dataFile = pd.read_csv('can-_ecu_762.csv') # read data dump file
 
 analogInputsRead = [columnName for columnName in dataFile.columns if 'Analog Input' in columnName] # create list of columns with names that include Analog input
 
