@@ -31,5 +31,5 @@ TPS_GRAPH = px.line(y=TPS, x=timeStamp)
 
  
 # printing the figure instance
-# RPM_GRAPH.show()
-# TPS_GRAPH.show()
+RPM_GRAPH.show()
+TPS_GRAPH.show()
