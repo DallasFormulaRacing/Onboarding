@@ -23,6 +23,6 @@ if 'RPM' in df.columns and 'TPS' in df.columns:
     fig.show()
 
 else:
-    #in case of error where the RPM or TPS doesn't show, it will print this statment
+    #in case of error where the RPM or TPS doesn't show, it will print this statment 
     print("RPM or TPS missing")
 
