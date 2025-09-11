@@ -14,7 +14,7 @@ df = pd.read_csv("can-_ecu_762.csv")
 df = df.dropna(axis=1)
 
 
-# Removing columns that contains null data
+# Removing columns where all sensors contain the same values
 df = df.loc[:, df.nunique() > 1]
 
 print(df.info())
