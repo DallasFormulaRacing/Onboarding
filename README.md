@@ -1,7 +1,7 @@
 # Onboarding
 
 Steps:
-- [ ] Fork this repository into your account
+- [x] Fork this repository into your account
 - [ ] Remove all `Analog Input` columns with dead sensors. These are sensors whose values stay constant.
 - [ ] Graph the RPM, and TPS columns seperately (or in the same graph for fun lol)
 - [ ] Submit a PR back to this repository with your code
