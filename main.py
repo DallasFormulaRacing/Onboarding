@@ -19,7 +19,8 @@ fig_rpm = px.line(df_sampled, x='timestamp', y = 'RPM', title="RPM over Time", l
 #graph TPS over time 
 fig_tps = px.line(df_sampled, x = 'timestamp', y = 'TPS', title = "TPS over time", labels={"timestamp":"Time", " TPS": "TPS"})
 
-#show the graph
+#show the graphs
 fig_rpm.show()
+fig_tps.show()
 
 
