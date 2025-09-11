@@ -2,7 +2,7 @@
 
 Steps:
 - [ ] Fork this repository into your account
-- [ ] Remove all `Analog Input` columns with dead sensors. These are sensors whose values stay constant.
+- [ ] Dynamically remove move all `Analog Input` columns with dead sensors. These are sensors whose values stay constant. (have the code determine which sensors are dead as this can change)
 - [ ] Graph the RPM, and TPS columns seperately (or in the same graph for fun lol)
 - [ ] Submit a PR back to this repository with your code
 - [ ] Send me (@sq.id on discord) a message with a link to your PR and why you want to join the club.
