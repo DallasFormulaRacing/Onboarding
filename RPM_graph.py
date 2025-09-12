@@ -2,7 +2,6 @@ import pandas as pd
 import plotly.express as px
 
 df = pd.read_csv('dfr_data.csv',header = None)
-#df.dropna(inplace=True)
 df.head()
 
 fig = px.line(df, x=df[0], y=df[17], title="RPM over time") 
