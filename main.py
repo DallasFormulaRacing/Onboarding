@@ -10,12 +10,8 @@ df = pd.read_csv("can-_ecu_762.csv")
 
 
 
-# Removing columns that contains null data
-df.dropna(axis=1)
-
-
 # Removing columns where all sensors contain the same values
-df.loc[:, df.nunique() > 1]
+df = df.drop(columns=[col for col in df.columns if col.startswith("Analog Input")])
 
 print(df.info())
 
