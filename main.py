@@ -6,4 +6,11 @@
 
 import pandas as pd
 
-print("hello world my changes")
+rpm = pd.read_csv("can_data.csv", usecols=["RPM"]);
+tps = pd.read_csv("can_data.csv", usecols=["TPS"]);
+
+rpm = rpm.dropna();
+tps = tps.dropna();
+
+print(rpm)
+print(tps)
