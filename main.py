@@ -9,7 +9,7 @@ import plotly.express as px
 
 # Dataframes
 rpm = pd.read_csv("can_data.csv", usecols=["timestamp", "RPM"]);
-tps = pd.read_csv("can_data.csv", usecols=["TPS"]);
+tps = pd.read_csv("can_data.csv", usecols=["timestamp", "TPS"]);
 
 # Remove Null Values
 rpm = rpm.dropna();
@@ -17,6 +17,8 @@ tps = tps.dropna();
 
 # Plot Dataframes as a line graph
 rpmPlot = px.line(rpm, x = "timestamp", y = "RPM", title = "RPM over Time");
+tpsPlot = px.line(tps, x = "timestamp", y = "TPS", title = "TPS over Time");
 
 # Show Data on Graph
 rpmPlot.show()
+tpsPlot.show()
