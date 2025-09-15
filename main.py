@@ -5,12 +5,18 @@
 # Take those values and graph it via Plotly
 
 import pandas as pd
+import plotly.express as px
 
-rpm = pd.read_csv("can_data.csv", usecols=["RPM"]);
+# Dataframes
+rpm = pd.read_csv("can_data.csv", usecols=["timestamp", "RPM"]);
 tps = pd.read_csv("can_data.csv", usecols=["TPS"]);
 
+# Remove Null Values
 rpm = rpm.dropna();
 tps = tps.dropna();
 
-print(rpm)
-print(tps)
+# Plot Dataframes as a line graph
+rpmPlot = px.line(rpm, x = "timestamp", y = "RPM", title = "RPM over Time");
+
+# Show Data on Graph
+rpmPlot.show()
