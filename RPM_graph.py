@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 
 df = pd.read_csv('dfr_data.csv',header = None)
-df.dropna().head()
+df = df.dropna()
 
 dead_analog = [col for col in df if df[col].empty == True]
 df = df.drop(columns=dead_analog)
