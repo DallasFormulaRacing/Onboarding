@@ -9,9 +9,9 @@ for col in df.columns:
         df.drop(col, axis = 1, inplace = True)
 
 #RPM Graph
-RPM_graph = pt.line(df, y = df['RPM'], title = 'RPM over time (sec)', labels = {'index':'Time', 'RPM': 'RPM'})
+RPM_graph = pt.line(df, x = 'timestamp', y = 'RPM', title = 'RPM over time', labels = {'index':'Time', 'RPM': 'RPM'})
 RPM_graph.show()
 
 #TPS Graph
-TPS_graph = pt.line(df, y = df['TPS'], title = 'TPS over time (sec)', labels = {'index':'Time', 'TPS': 'TPS'})
+TPS_graph = pt.line(df, x = 'timestamp', y = 'TPS', title = 'TPS over time', labels = {'index':'Time', 'TPS': 'TPS'})
 TPS_graph.show()
