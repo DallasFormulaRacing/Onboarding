@@ -8,7 +8,7 @@ import plotly.express as px
 #Output: Dataframe without NAN entries and dead analog sensors
 def cleandata(dataframe: pd.DataFrame) -> pd.DataFrame:
     dataframe = dataframe.dropna()
-    dead_columns = []
+    dead_columns =[]
     #Removes columns with "Analog Input" in title and only one unique entry
     analog_input_cols = dataframe.filter(like='Analog Input').columns
     for col in analog_input_cols:
@@ -16,6 +16,7 @@ def cleandata(dataframe: pd.DataFrame) -> pd.DataFrame:
             dead_columns.append(col)
     if dead_columns:
         dataframe = dataframe.drop(columns=dead_columns)
+
     return dataframe
 
 #Reads, cleans, and saves csv
