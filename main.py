@@ -15,7 +15,6 @@ data['Time'] = pd.to_datetime(data['timestamp'], unit='s')
 
 # Remove Null Values
 data = data.dropna();
-print(data)
 
 # Plot Dataframes as a line graph
 rpmPlot = px.line(data, x = 'Time', y = "RPM", title = "RPM over Time");
