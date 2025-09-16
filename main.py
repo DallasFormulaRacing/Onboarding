@@ -2,7 +2,7 @@
 #Github ID: Sky1219
 #Discord ID: Samtin56
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 #Input: Dataframe
 #Output: Dataframe without NAN entries and dead analog sensors
@@ -27,20 +27,11 @@ canFrame = pd.read_csv('can_data.csv')
 canFrame = cleandata(canFrame)
 
 #RPM Graph
-plt.plot(canFrame['timestamp'], canFrame['RPM'])
-plt.title('RPM Over Time')
-plt.xlabel('Time')
-plt.ylabel('RPM')
-plt.grid(True)
-plt.show()
+fig = px.line(canFrame, x='timestamp', y='TPS')
+fig.show()
 
 #TPS Graph
-plt.plot(canFrame['timestamp'], canFrame['TPS'])
-plt.title('TPS Over Time')
-plt.xlabel('Time')
-plt.ylabel('TPS')
-plt.grid(True)
-plt.show()
-
+fig = px.line(canFrame, x='timestamp', y='TPS')
+fig.show()
 #Saves cleaned CSV
 canFrame.to_csv("cleaned_can_data.csv", encoding='utf-8', index=False)
