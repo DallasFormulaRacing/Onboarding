@@ -15,23 +15,16 @@ def cleandata(dataframe: pd.DataFrame) -> pd.DataFrame:
         if len(dataframe[col].unique()) == 1:
             dead_columns.append(col)
     if dead_columns:
-        print(f"Removing : {dead_columns}")
         dataframe = dataframe.drop(columns=dead_columns)
-    else:
-        print("No dead sensors found.")
-
     return dataframe
 
-#Reads and cleans csv
+#Reads, cleans, and saves csv
 canFrame = pd.read_csv('can_data.csv')
 canFrame = cleandata(canFrame)
-
-#RPM Graph
-fig = px.line(canFrame, x='timestamp', y='RPM')
-fig.show()
-
-#TPS Graph
-fig = px.line(canFrame, x='timestamp', y='TPS')
-fig.show()
-#Saves cleaned CSV
 canFrame.to_csv("cleaned_can_data.csv", encoding='utf-8', index=False)
+
+#Graphs
+fig_rpm = px.line(canFrame, x='timestamp', y='RPM')
+fig_tps = px.line(canFrame, x='timestamp', y='TPS')
+fig_rpm.show()
+fig_tps.show()
