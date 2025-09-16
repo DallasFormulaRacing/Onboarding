@@ -27,7 +27,7 @@ canFrame = pd.read_csv('can_data.csv')
 canFrame = cleandata(canFrame)
 
 #RPM Graph
-fig = px.line(canFrame, x='timestamp', y='TPS')
+fig = px.line(canFrame, x='timestamp', y='RPM')
 fig.show()
 
 #TPS Graph
