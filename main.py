@@ -6,19 +6,21 @@
 
 import pandas as pd
 import plotly.express as px
+import datetime as dt
 
-# Dataframes
-rpm = pd.read_csv("can_data.csv", usecols=["timestamp", "RPM"]);
-tps = pd.read_csv("can_data.csv", usecols=["timestamp", "TPS"]);
+# All Data
+data = pd.DataFrame(pd.read_csv("can_data.csv", usecols=['timestamp', 'RPM', 'TPS']))
+data['Datetime'] = pd.to_datetime(data['timestamp'], unit='s')
+
 
 # Remove Null Values
-rpm = rpm.dropna();
-tps = tps.dropna();
+data = data.dropna();
+print(data)
 
 # Plot Dataframes as a line graph
-rpmPlot = px.line(rpm, x = "timestamp", y = "RPM", title = "RPM over Time");
-tpsPlot = px.line(tps, x = "timestamp", y = "TPS", title = "TPS over Time");
+rpmPlot = px.line(data, x = 'Datetime', y = "RPM", title = "RPM over Time");
+tpsPlot = px.line(data, x = 'Datetime', y = "TPS", title = "TPS over Time");
 
-# Show Data on Graph
+# # Show Data on Graph
 rpmPlot.show()
 tpsPlot.show()
