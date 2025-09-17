@@ -1,12 +1,11 @@
+# importing libraries (pandas and plotly)
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv('dfr_data.csv',header = None)
-df = df.dropna()
+# opening csv file and removing dead analog inputs
+df = pd.read_csv('dfr_data.csv')
+df.dropna()
 
-dead_analog = [col for col in df if df[col].empty == True]
-df = df.drop(columns=dead_analog)
-
-fig = px.line(df, x=df[0], y=df[17], title="RPM over time", labels={"x":"Time", "y":"RPM"}) 
-fig.update_layout(autotypenumbers='convert types')
+# creating line chart based on RPM column and timestamp column
+fig = px.line(df, x='timestamp', y='RPM', title="RPM over time", labels={"timestamp":"Time", "RPM":"RPM"}) 
 fig.show()

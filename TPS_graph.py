@@ -1,12 +1,11 @@
+# importing libraries (pandas and plotly)
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv('dfr_data.csv',header = None)
+# opening csv file and removing dead analog inputs
+df = pd.read_csv('dfr_data.csv')
 df.dropna()
 
-dead_analog = [col for col in df if df[col].empty == True]
-df = df.drop(columns=dead_analog)
-
-fig = px.line(df, x=df[0], y=df[18], title="TPS over time", labels={"df[1]":"Time", "y":"TPS"}) 
-fig.update_layout(autotypenumbers='convert types')
+# creating line chart based on TPS column and timestamp column
+fig = px.line(df, x='timestamp', y='TPS', title="TPS over time", labels={"timestamp":"Time", "TPS":"TPS"}) 
 fig.show()
