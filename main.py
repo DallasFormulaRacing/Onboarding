@@ -11,8 +11,8 @@ df = df.drop(columns = [col for col in df.columns if 'Analog Input' in col and d
 
 #3. Create a line graph(s) using plotly that shows the change in RPM over time and change in TPS over time. This can either be done in separate graphs or in the same graph if you prefer.
 
-rpm = px.line(df, x="timestamp", y="RPM", title="RPM vs. Time")
-tps = px.line(df, x="timestamp", y="TPS", title="TPS vs. Time")
+rpm = px.line(df, x = "timestamp", y = "RPM", title = "RPM vs. Time")
+tps = px.line(df, x = "timestamp", y = "TPS", title = "TPS vs. Time")
 
 #4. Add appropriate titles and labels to your graphs for clarity.
 
