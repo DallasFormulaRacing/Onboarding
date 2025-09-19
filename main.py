@@ -5,7 +5,7 @@ from plotly.subplots import make_subplots
 
 def analyze_and_clean():
     # read file
-    df = pd.read_csv('Onboarding/can_data.csv')
+    df = pd.read_csv('can_data.csv')
     # get all analog columns
     analog_columns = [col for col in df.columns if 'Analog Input' in col]
     
