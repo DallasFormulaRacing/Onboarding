@@ -13,7 +13,7 @@ fig_rpm.update_yaxes(title = "RPM")
 fig_rpm.show()
 
 fig_tps = px.line(df, x = "Time", y = "TPS", title = "TPS over Time")
-fi_tps.update_xaxes(title = "Time")
-fig_tps.update_yaxes(title = "Throttle position Seonsor(TPS)")
+fig_tps.update_xaxes(title = "Time")
+fig_tps.update_yaxes(title = "Throttle position Sensor(TPS)")
 fig_tps.show()
 
