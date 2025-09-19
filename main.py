@@ -3,19 +3,20 @@ import pandas as pd
 
 df = pd.read_csv('can_data.csv')
 
-MAX_SENSORS=7
 new_df = None
 
 ANALOG_INPUT_TEXT='Analog Input #'
+columns = df.columns.tolist()
 
-for sensor in range(1, MAX_SENSORS+1):
-    count = len(df[ANALOG_INPUT_TEXT + str(sensor)].unique())
-    
-    if count == 1:
-        print("####################################")
-        print("Removing dead sensor #"+str(sensor))
-        print("####################################")
-        new_df = df.drop(ANALOG_INPUT_TEXT + str(sensor), axis=1)
+for sensor in columns:
+    if sensor.startswith(ANALOG_INPUT_TEXT):
+        count = len(df[sensor].unique())
+        #if number of unique sensors value is 1, then it is dead and will be removed
+        if count == 1:
+            print("####################################")
+            print("Removing dead sensor "+ sensor)
+            print("####################################")
+            new_df = df.drop(sensor, axis=1)
 
 print(new_df)
 
