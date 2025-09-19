@@ -1,5 +1,6 @@
 import plotly.express as px
 import pandas as pd 
+import math
 
 df = pd.read_csv('can_data.csv')
 
@@ -10,7 +11,10 @@ columns = df.columns.tolist()
 
 for sensor in columns:
     if sensor.startswith(ANALOG_INPUT_TEXT):
-        count = len(df[sensor].unique())
+        unique_values = df[sensor].unique()
+        filtered_list = [s for s in unique_values if not math.isnan(s)]
+        count = len(filtered_list)
+        print(f"Sensor {sensor}: {count}")
         #if number of unique sensors value is 1, then it is dead and will be removed
         if count == 1:
             print("####################################")
